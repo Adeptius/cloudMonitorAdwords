@@ -1,0 +1,38 @@
+group 'ua.adeptius.adwords'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    def springVersion = '4.3.8.RELEASE'
+
+    testCompile 'junit:junit:4.12'
+    compile 'org.jsoup:jsoup:1.10.2'
+    compile 'com.google.api-ads:ads-lib:3.2.0'
+    compile 'com.google.api-ads:adwords-axis:3.2.0'
+
+//    Spring
+    compile "org.springframework:spring-webmvc:$springVersion"
+    providedCompile 'javax:javaee-web-api:7.0'
+
+    //    Hibernate
+    compile 'org.hibernate:hibernate-core:5.2.5.Final'
+    compile 'org.hibernate.common:hibernate-commons-annotations:5.0.1.Final'
+    compile "org.springframework:spring-orm:$springVersion"
+    compile 'org.springframework.data:spring-data-jpa:1.11.3.RELEASE'
+
+
+    compile 'mysql:mysql-connector-java:5.1.6'
+    compile 'commons-dbcp:commons-dbcp:1.4'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+
+//    Mail
+    compile 'javax.mail:mail:1.4.7'
+}

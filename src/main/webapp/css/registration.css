@@ -1,0 +1,21 @@
+body {
+    background: url(../images/mainbackground.jpg) fixed center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.login-container {
+    width: 450px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -250px 0 0 -225px;
+}
+
+.h1reg {
+    color: darkgreen;
+    text-align: center;
+}
+.login-container div{
+    height: 80px;
+}

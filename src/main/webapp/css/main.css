@@ -1,0 +1,110 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: url(../images/mainbackground.jpg) fixed center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.wrapper{
+
+}
+
+
+/*HEADER*/
+.header{
+    height: 100px;
+    background: #9d9d9d;
+    background: url(../images/header.jpg) fixed center;
+    color: #ffffff;
+    padding:10px;
+}
+
+.header>div{ /*Все элементы хэдера в ряд*/
+    height: 50px;
+    display: inline-block;
+}
+
+/*END OF HEADER*/
+
+/*CENTER*/
+/*SIDEBAR*/
+.sidebar{
+    float: left;
+    width: 30%;
+    background: #449d44;
+}
+/*END OF SIDEBAR*/
+
+/*CONTENT*/
+.content{
+    float: right;
+    width: 70%;
+    background: #337ab7;
+}
+/*END OF CONTENT*/
+/*END OF CENTER*/
+
+/*FOOTER*/
+.footer{
+    clear: both;
+    height: 100px;
+    background: #286090;
+}
+/*END OF FOOTER*/
+
+.h1{
+    color: #4cae4c;
+}
+
+.logoutButton {
+    border: 1px solid #0a3c59;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    padding: 9px 18px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+    -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+    box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+    text-shadow: #7ea4bd 0 1px 0;
+    color: #06426c;
+    font-size: 16px;
+    font-family: helvetica, serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
+.logoutButton:hover {
+    border: 1px solid #0a3c59;
+    text-shadow: #1e4158 0 1px 0;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    color: #fff;
+    text-decoration: none;
+}
+.logoutButton:active {
+    text-shadow: #1e4158 0 1px 0;
+    border: 1px solid #0a3c59;
+    background: #65a9d7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#3e779d));
+    background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+    background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+    background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+    background: -o-linear-gradient(top, #3e779d, #65a9d7);
+    background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+    color: #fff;
+}
+
