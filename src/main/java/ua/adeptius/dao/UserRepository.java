@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ua.adeptius.model.User;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 
@@ -23,7 +24,7 @@ public class UserRepository {
     }
 
     @Transactional
-    public void save(User user) {
+    public void save(@Nonnull User user) {
         getSession().save(user);
     }
 

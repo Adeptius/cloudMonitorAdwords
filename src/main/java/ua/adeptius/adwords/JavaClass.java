@@ -16,7 +16,8 @@ import java.util.ArrayList;
 public class JavaClass {
 
     public static void main(String[] args) throws Exception{
-
+        JavaClass javaClass = new JavaClass();
+        javaClass.getAdwordsByQuery();
 
     }
 
@@ -38,10 +39,13 @@ public class JavaClass {
         }
         in.close();
 
+//        System.out.println(sb.toString());
+
 //        System.out.println("Запрос: " + query);
 //        System.out.println("Реклама:");
 
         Document doc2 = Jsoup.parse(sb.toString());
+        System.out.println(doc2);
         ArrayList<Adword> adwords = new ArrayList<>();
         Elements li = doc2.getElementsByClass("ads-ad");
         for (Element liClass : li) {

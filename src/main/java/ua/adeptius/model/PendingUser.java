@@ -3,6 +3,7 @@ package ua.adeptius.model;
 
 import ua.adeptius.utils.StringUtils;
 
+import javax.annotation.Nonnull;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -14,11 +15,10 @@ public class PendingUser implements Serializable {
     public PendingUser() {
     }
 
-    public PendingUser(String login, String password, String email, int checkDelay) {
+    public PendingUser(@Nonnull String login, @Nonnull String password, @Nonnull String email) {
         this.login = login;
         this.password = password;
         this.email = email;
-        this.checkDelay = checkDelay;
         key = StringUtils.generateRandomKey();
         date = new Date();
     }
@@ -39,16 +39,6 @@ public class PendingUser implements Serializable {
     @Column(name = "date")
     private Date date;
 
-    @Column(name = "checkDelay")
-    private int checkDelay;
-
-
-
-    @Column(name = "emailDelay")
-    private int emailDelay;
-
-
-
     @Override
     public String toString() {
         return "PendingUser{" +
@@ -59,6 +49,7 @@ public class PendingUser implements Serializable {
                 ", date=" + date +
                 '}';
     }
+
 
     public Date getDate() {
         return date;

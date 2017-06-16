@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import ua.adeptius.dao.PendingUserRepository;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.security.MessageDigest;
 import java.util.*;
 
@@ -47,7 +49,7 @@ public class UserContainer {
         return hashes;
     }
 
-    public static void setUsers(List<User> users) {
+    public static void setUsers(@Nonnull List<User> users) {
         UserContainer.users = users;
         hashes.clear();
         for (User user : users) {
@@ -55,7 +57,7 @@ public class UserContainer {
         }
     }
 
-    public static String putUser(User user){
+    public static String putUser(@Nonnull User user){
         LOGGER.debug("Добавление пользователя {}", user);
         users.add(user);
         String md5 = createMd5(user);
@@ -63,6 +65,7 @@ public class UserContainer {
         return md5;
     }
 
+    @Nullable
     public static User getUserByName(String name){
         try {
             return users.stream().filter(user -> user.getLogin().equals(name)).findFirst().get();

@@ -59,7 +59,7 @@ public class RegistrationWebController {
 
         try {
             if (loginOk && emailOk && passwordOk) {
-                PendingUser pendingUser = new PendingUser(login, password, email, checkDelay);
+                PendingUser pendingUser = new PendingUser(login, password, email);
                 pendingUserRepository.save(pendingUser);
                 new EmailSender(email, pendingUser.getKey());
                 UserContainer.updatePendingUsers();

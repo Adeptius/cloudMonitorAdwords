@@ -1,8 +1,11 @@
 package ua.adeptius.model;
 
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,7 +15,7 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String login, String password, String email) {
+    public User(@Nonnull String login, @Nonnull String password, @Nonnull String email) {
         this.login = login;
         this.password = password;
         this.email = email;
@@ -40,27 +43,30 @@ public class User implements Serializable {
                 '}';
     }
 
+    @Nonnull
     public String getLogin() {
         return login;
     }
 
-    public void setLogin(String login) {
+    public void setLogin(@Nonnull String login) {
         this.login = login;
     }
 
+    @Nonnull
     public List<Site> getSites() {
-        return sites;
+        return sites==null? new ArrayList<>(): sites;
     }
 
-    public void setSites(List<Site> sites) {
+    public void setSites(@Nonnull List<Site> sites) {
         this.sites = sites;
     }
 
+    @Nonnull
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(@Nonnull String password) {
         this.password = password;
     }
 
@@ -68,7 +74,7 @@ public class User implements Serializable {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(@Nonnull String email) {
         this.email = email;
     }
 }

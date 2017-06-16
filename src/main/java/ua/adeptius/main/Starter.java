@@ -14,6 +14,7 @@ import ua.adeptius.model.Site;
 import ua.adeptius.model.User;
 import ua.adeptius.model.UserContainer;
 import ua.adeptius.watchers.PendingUsersWatcher;
+import ua.adeptius.watchers.SiteWatcher;
 import ua.adeptius.webcontrollers.RegistrationWebController;
 
 import javax.annotation.PostConstruct;
@@ -77,6 +78,9 @@ public class Starter {
 
         LOGGER.info("Starting pending users watcher...");
         new PendingUsersWatcher(pendingUserRepository);
+
+        LOGGER.info("Starting site watcher...");
+        new SiteWatcher();
 
     }
 }

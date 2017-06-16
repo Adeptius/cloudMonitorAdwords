@@ -41,12 +41,19 @@ public class PendingUsersWatcher extends Thread {
         Iterator<PendingUser> it = pendingUsers.iterator();
         while (it.hasNext()){
             PendingUser pendingUser = it.next();
-            long timeCreated = pendingUser.getDate().getTime();
-            long timeNow = new Date().getTime();
-            long pastTime = timeNow - timeCreated;
-            int pastMinutes = (int)(pastTime / 1000 / 60);
-            if (pastMinutes>30){
-                LOGGER.info("Pending user {} was removed. Past {} minutes", pendingUser.getLogin(), pastMinutes);
+            try{
+                long timeCreated = pendingUser.getDate().getTime();
+                long timeNow = new Date().getTime();
+                long pastTime = timeNow - timeCreated;
+                int pastMinutes = (int)(pastTime / 1000 / 60);
+                if (pastMinutes>30){
+                    LOGGER.info("Pending user {} was removed. Past {} minutes", pendingUser.getLogin(), pastMinutes);
+                    UserContainer.pendingUsers.remove(pendingUser);
+                    pendingUserRepository.remove(pendingUser);
+                    it.remove();
+                }
+            }catch (Exception e){
+                LOGGER.error("Pending user because error",e);
                 UserContainer.pendingUsers.remove(pendingUser);
                 pendingUserRepository.remove(pendingUser);
                 it.remove();
