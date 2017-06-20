@@ -1,25 +1,17 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
 
-body {
-    background: url(../images/mainbackground.jpg) fixed center;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.wrapper{
-
-}
 
 
 /*HEADER*/
 .header{
     height: 100px;
-    background: #9d9d9d;
-    background: url(../images/header.jpg) fixed center;
+    width: 100%;
+    background: url(../images/header.jpg);
     color: #ffffff;
     padding:10px;
+    background-repeat: no-repeat;
+    background-color: #000;
+    background-position: center;
+    background-size: auto auto;
 }
 
 .header>div{ /*Все элементы хэдера в ряд*/
@@ -30,19 +22,53 @@ body {
 /*END OF HEADER*/
 
 /*CENTER*/
+.notHeader{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+}
 /*SIDEBAR*/
 .sidebar{
     float: left;
-    width: 30%;
-    background: #449d44;
+    width: 20%;
+    /*border: solid #204d74 medium;*/
 }
+
+.sidebar button{
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    border-radius: 0;
+    line-height: initial;
+    color: inherit!important;
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+}
+.sidebar button:hover{
+    padding: 0;
+    border-radius: 0;
+    line-height: initial;
+    color: inherit!important;
+    box-shadow: none;
+    background-color: #e9e9e9;
+    border: none;
+}
+/*Картинки в sidebar*/
+.sidebar img{
+    width: 32px;
+}
+
 /*END OF SIDEBAR*/
 
 /*CONTENT*/
 .content{
     float: right;
-    width: 70%;
-    background: #337ab7;
+    width: 80%;
+}
+
+.itemSite {
+
 }
 /*END OF CONTENT*/
 /*END OF CENTER*/
@@ -57,6 +83,20 @@ body {
 
 .h1{
     color: #4cae4c;
+}
+
+.rounded{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0px 5px 10px #dddddd;
+    -webkit-box-shadow: 0px 5px 10px #717171;
+    /*border-width: 1px;*/
+    /*border-style: solid;*/
+    /*border-color: #ededed;*/
+    overflow: hidden;
+    margin: 5px;
 }
 
 .logoutButton {

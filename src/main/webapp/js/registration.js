@@ -166,15 +166,16 @@ function register() {
 
     $.post(registrationUrl + '/register',
         {login: login, password: password, email: email}, function (result) {
-            if (result=='key sended'){
-                keySended();
+            if (result.indexOf('key sended to ')>-1){
+                var email = result.substring(14, result.length);
+                keySended(email);
             }
         });
 }
 
 var logged;
 
-function keySended() {
+function keySended(email) {
 
     var loginContainer = $('.login-container');
     loginContainer.find('*').slideUp();
@@ -185,6 +186,6 @@ function keySended() {
 
     bigText.slideDown();
 
-    var smallText = $('<h4>'+logged+', мы отправили Вам письмо на почту о подтверждении регистрации</h4>')
+    var smallText = $('<h4>'+logged+', мы отправили Вам письмо на '+ email +' о подтверждении регистрации</h4>')
     loginContainer.append(smallText);
 }

@@ -60,11 +60,11 @@ public class RegistrationWebController {
         try {
             if (loginOk && emailOk && passwordOk) {
                 PendingUser pendingUser = new PendingUser(login, password, email);
-                pendingUserRepository.save(pendingUser);
-                new EmailSender(email, pendingUser.getKey());
+                pendingUserRepository.saveOrUpdate(pendingUser);
+                new EmailSender(email, pendingUser.getKey(), login);
                 UserContainer.updatePendingUsers();
                 LOGGER.info("Key sended to {}", email);
-                return "key sended";
+                return "key sended to " + email;
             } else {
                 return "Wrong data";
             }
@@ -110,9 +110,9 @@ public class RegistrationWebController {
             return "busy";
         }
 
-        if (UserContainer.pendingUsers.stream().anyMatch(us -> us.getLogin().equals(login))){
-            return "awaiting";
-        }
+//        if (UserContainer.pendingUsers.stream().anyMatch(us -> us.getLogin().equals(login))){
+//            return "awaiting";
+//        }
 
         return "good";
     }

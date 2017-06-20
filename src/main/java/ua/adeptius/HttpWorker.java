@@ -59,12 +59,12 @@ public class HttpWorker {
             String result = doc2.toString();
 //        System.out.println(result);
 //            System.out.println("Responce code is: " + code);
-            HttpReport report = new HttpReport(result.contains(word), code, HttpStatus.SUCCESS);
+            HttpReport report = new HttpReport(result.contains(word), code, HttpStatus.SUCCESS, url);
             return report;
         }catch (SocketTimeoutException e){
-            return new HttpReport(false, 0, HttpStatus.TIMEOUT);
+            return new HttpReport(false, 0, HttpStatus.TIMEOUT, url);
         }catch (IOException e){
-            return new HttpReport(false, 0, HttpStatus.ERROR);
+            return new HttpReport(false, 0, HttpStatus.ERROR, url);
         }
     }
 }

@@ -5,45 +5,64 @@
     <title>Main</title>
 
     <script src="js/jquery-3.2.1.min.js"></script>
-    <link href="css/opensans.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
 
+    <script src="js/templator.js"></script>
+    <script src="js/dao.js"></script>
     <script src="js/main.js"></script>
+    <link href="css/general.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
-<div class="header" >
-    <div >
+<div class="header">
+    <div>
         <h1 class="h1header">Cloud Monitor</h1>
     </div>
+
     <div style="float: right">
-        <a href='#' class='logoutButton'>Logout</a>
+        <img src="images/icons/user_icon.png" style="height: 32px; width: 32px"/>
+        <span id="userName" style="margin-right: 10px;font-size: large"></span>
+        <a href='#' class='logoutButton'>Выйти</a>
     </div>
 </div>
-<div class="sidebar">
-    <p>SIDEBAR</p>
-    <p>SIDEBAR</p>
-    <p>SIDEBAR</p>
-    <p>SIDEBAR</p>
-    <p>SIDEBAR</p>
-    <p>SIDEBAR</p>
-    <p>SIDEBAR</p>
-    <p>SIDEBAR</p>
-    <p>SIDEBAR</p>
-    <p>SIDEBAR</p>
-    <p>SIDEBAR</p>
-    <p>SIDEBAR</p>
+<div class="notHeader">
+    <div class="sidebar">
+        <div class="rounded">
+            <ul>
+                <li>
+                    <button id="sitesButton">
+                        <div>
+                            <span><img src="images/icons/sites.png"></span>
+                            <span>Мои сайты</span>
+                        </div>
+                    </button>
+                </li>
+                <li>
+                    <button id="settingsButton">
+                        <div>
+                            <span><img src="images/icons/settings.png"></span>
+                            <span>Настройки</span>
+                        </div>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content"></div>
+</div>
 
-</div>
-<div class="content">
-    <p>CONTENT</p>
-    <p>CONTENT</p>
-    <p>CONTENT</p>
-    <p>CONTENT</p>
-    <p>CONTENT</p>
-    <p>CONTENT</p>
-</div>
-<div class="footer">FOOTER</div>
+<!--<div class="footer">FOOTER</div>-->
+
+<script type="text/template" id="template">
+    <div class="itemSite">
+        <div class="rounded">
+            <span id="siteUrl"><%= url %></span>
+            <span class="word"><%= lookingWord %></span>
+            <span class="checkDelay"><%= checkDelay %></span>
+            <span class="triesToEmail"><%= triesToEmail %></span>
+        </div>
+    </div>
+</script>
 </body>
 </html>

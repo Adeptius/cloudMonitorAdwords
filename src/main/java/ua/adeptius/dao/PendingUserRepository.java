@@ -28,6 +28,11 @@ public class PendingUserRepository {
     }
 
     @Transactional
+    public void saveOrUpdate(PendingUser user) {
+        getSession().saveOrUpdate(user);
+    }
+
+    @Transactional
     public void remove(PendingUser user) {
         getSession().remove(user);
     }

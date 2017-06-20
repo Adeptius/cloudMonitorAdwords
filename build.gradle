@@ -18,11 +18,11 @@ dependencies {
     compile 'com.google.api-ads:ads-lib:3.2.0'
     compile 'com.google.api-ads:adwords-axis:3.2.0'
 
-//    Spring
+    //Spring
     compile "org.springframework:spring-webmvc:$springVersion"
     providedCompile 'javax:javaee-web-api:7.0'
 
-    //    Hibernate
+    //Hibernate
     compile 'org.hibernate:hibernate-core:5.2.5.Final'
     compile 'org.hibernate.common:hibernate-commons-annotations:5.0.1.Final'
     compile "org.springframework:spring-orm:$springVersion"
@@ -33,15 +33,13 @@ dependencies {
     compile 'commons-dbcp:commons-dbcp:1.4'
     compile 'ch.qos.logback:logback-classic:1.2.3'
 
-//    Mail
+    //Mail
     compile 'javax.mail:mail:1.4.7'
 
     //String utils
     compile 'org.apache.commons:commons-lang3:3.0'
 
-
-    //nullpointer
-//    compile 'com.google.code.findbugs:jsr305:3.0.1'
-//    compile group: 'org.jetbrains', name: 'annotations', version: '13.0'
+    //JSON
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
 
 }

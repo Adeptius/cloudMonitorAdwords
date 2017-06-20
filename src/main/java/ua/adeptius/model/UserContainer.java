@@ -31,6 +31,7 @@ public class UserContainer {
         }
     }
 
+    @Nullable
     public static User getUserByHash(String hash){
         return hashes.get(hash);
     }

@@ -33,7 +33,7 @@ public class SiteWatcher extends Thread {
         LOGGER.info("SiteWatcher was started");
         while (true) {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(20000);
                 checkAllSites();
             } catch (InterruptedException ignored) {
             }
@@ -41,14 +41,14 @@ public class SiteWatcher extends Thread {
     }
 
     private void checkAllSites() {
-        LOGGER.debug("SiteWatcher checking all sites");
+        LOGGER.trace("SiteWatcher checking all sites");
         List<Site> sites = UserContainer.getUsers().stream().flatMap(user -> user.getSites().stream()).collect(Collectors.toList());
         sites.forEach(site -> EXECUTOR.submit(() -> checkSite(site)));
     }
 
     private void checkSite(@Nonnull Site site) {
         HttpReport report = HttpWorker.getResultViaJsoupConnect(site.getUrl(), site.getLookingWord());
-        LOGGER.info("Site {} is checked", site.getUrl());
+        LOGGER.trace("Site {} is checked", site.getUrl());
         System.out.println(report);
     }
 }

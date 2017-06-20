@@ -1,6 +1,7 @@
 package ua.adeptius.model;
 
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.annotation.Nonnull;
@@ -43,6 +44,7 @@ public class Site implements Serializable {
     @Column(name = "url")
     private String url;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "login", referencedColumnName = "login")
     private User user;

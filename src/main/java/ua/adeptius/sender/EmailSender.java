@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ua.adeptius.main.Starter;
 
+import javax.annotation.Nonnull;
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.nio.file.Files;
@@ -12,18 +13,21 @@ import java.util.Properties;
 
 public class EmailSender extends Thread {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(Starter.class.getSimpleName());
+    private static Logger LOGGER = LoggerFactory.getLogger(EmailSender.class.getSimpleName());
 
     private final String username = "your.cloud.monitor";
     private final String password = "357Monitor159";
     private String htmlMessage = "";
     private String registrationUrl;
     private String to = "adeptius@gmail.com";
+    private String userLogin;
 
-    public EmailSender(String email, String key) {
+    public EmailSender(@Nonnull String email, @Nonnull String key, @Nonnull String userLogin) {
         to = email;
-        registrationUrl = "http://localhost:8080/registerresult.html?key=" + key;
+//        registrationUrl = "http://78.159.55.63:8080/registerresult.html?key=" + key;
+        registrationUrl = "http://188.231.188.168:8080/registerresult.html?key=" + key;
         htmlMessage = Starter.htmlMailBody;
+        this.userLogin = userLogin;
         start();
     }
 
@@ -66,7 +70,7 @@ public class EmailSender extends Thread {
 
             //            message.setContent(message, "text/plain; charset=UTF-8");
 
-            htmlMessage = htmlMessage.replaceAll("USERNAME", to.substring(0, to.indexOf("@")));
+            htmlMessage = htmlMessage.replaceAll("USERNAME", userLogin);
             htmlMessage = htmlMessage.replaceAll("REGISTRATION_URL", registrationUrl);
             messageBodyPart.setContent(htmlMessage, "text/html; charset=UTF-8");
 

@@ -6,11 +6,21 @@ public class HttpReport {
     private boolean wordIsFounded;
     private int responceCode;
     private HttpStatus httpStatus;
+    private String url;
 
-    public HttpReport(boolean wordIsFounded, int responceCode, HttpStatus httpStatus) {
+    public HttpReport(boolean wordIsFounded, int responceCode, HttpStatus httpStatus, String url) {
         this.wordIsFounded = wordIsFounded;
         this.responceCode = responceCode;
         this.httpStatus = httpStatus;
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public boolean isWordIsFounded() {
@@ -37,13 +47,13 @@ public class HttpReport {
         this.httpStatus = httpStatus;
     }
 
-
     @Override
     public String toString() {
         return "HttpReport{" +
                 "wordIsFounded=" + wordIsFounded +
                 ", responceCode=" + responceCode +
                 ", httpStatus=" + httpStatus +
+                ", url='" + url + '\'' +
                 '}';
     }
 }

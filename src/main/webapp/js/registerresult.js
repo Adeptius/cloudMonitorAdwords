@@ -23,25 +23,36 @@ function getKeyFromUrl() {
 }
 
 function processResult(result) {
-    if (result.indexOf('token')>0){ // если key есть
+    if (result.indexOf('token')>-1){ // если key есть
         var token = result.substring(result.indexOf('=') + 1);
         showThatAllOkAndRedirect(token)
-    }else if (result.indexOf('WrongKey')>0){
+    }else if (result.indexOf('WrongKey')>-1){
         showThatKeyIsWrongOrExpired();
+    }else {
+        $('.main-container').append('ошибка..');
     }
 }
 
 
 function showThatKeyIsWrongOrExpired() {
-    var bigText = $('<h1>Ссылка неправильная или прошло много времени</h1>');
+    var bigText = $('<h1><b>Регистрация:</b> <br/> <br/>Ссылка неправильная или прошло много времени</h1>');
     bigText.addClass('h1reg');
     $('.main-container').append(bigText);
 }
 
 function showThatAllOkAndRedirect(token) {
     localStorage.setItem('token', token);
-    var bigText = $('<h1>Регистрация успешна. Сейчас вы будете перемещены на главную страницу</h1>');
+    var bigText = $('<h1><b>Регистрация успешна!</b> <br/> <br/> Сейчас вы будете перемещены на главную страницу</h1>');
     bigText.addClass('h1reg');
     $('.main-container').append(bigText);
-    // window.location.href = '/tracking'; //TODO перенаправление на главную страницу
+    setTimeout(function() {
+
+        $('.main-container').find('*').slideUp();
+
+        setTimeout(function() {
+            window.location.href = '/';
+        },800)
+
+    }, 3000);
+
 }
